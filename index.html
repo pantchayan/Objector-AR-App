@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/ModelViewer.css">
+  <link rel="stylesheet" href="./assets/css/MainPage.css">
+  <link rel="stylesheet" href="./assets/css/PreloadPages.css">
+</head>
+
+<body>
+  <!-- Import the component -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+
+  <div id="landing-page">
+    <h1>Welcome to <br>Objector</h1>
+
+    <button class="login-btn">Login</button>
+    <button class="register-btn">Register</button>
+  </div>
+
+  <div id="login-page">
+    <h1>Welcome to <br>Objector</h1>
+    <form>
+      <input type="text" name="username" id="username-input1" placeholder="Username...">
+      <input type="password" name="password" id="password-input1" placeholder="Password...">
+    </form>
+    <button class="login-btn">Login</button>
+  </div>
+
+  <div id="register-page">
+    <h1>Let's get you <br>onboard</h1>
+    <form>
+      <input type="text" name="username" id="username-input2" placeholder="Username...">
+      <input type="password" name="password" id="password-input2" placeholder="Password...">
+    </form>
+    <button class="register-btn">Register</button>
+  </div>
+
+  <div id="main-page">
+    <h2>Welcome User! to Objector</h2>
+    <div class="main-slides">
+      <div>
+        <button class="slide selected" onclick="switchSrc(this, 'Chair')"
+          style="background-image: url('./assets/models/Chair.webp');">
+        </button>
+        Chair <br>
+        <span>by anonymous</span> <br>
+        <span>5h ago</span>
+      </div>
+      <div>
+        <button class="slide" onclick="switchSrc(this, 'Mixer')"
+          style="background-image: url('./assets/models/Mixer.webp');">
+        </button>
+        Mixer <br>
+        <span>by anonymous</span> <br>
+        <span>5h ago</span>
+      </div>
+      <div>
+        <button class="slide" onclick="switchSrc(this, 'GeoPlanter')"
+          style="background-image: url('./assets/models/GeoPlanter.webp');">
+        </button>
+        GeoPlanter <br>
+        <span>by anonymous</span> <br>
+        <span>5h ago</span>
+      </div>
+      <div>
+        <button class="slide" onclick="switchSrc(this, 'ToyTrain')"
+          style="background-image: url('./assets/models/ToyTrain.webp');">
+        </button>
+        ToyTrain <br>
+        <span>by anonymous</span> <br>
+        <span>5h ago</span>
+      </div>
+      <div>
+        <button class="slide" onclick="switchSrc(this, 'Canoe')"
+          style="background-image: url('./assets/models/Canoe.webp');">
+        </button>
+        Canoe <br>
+        <span>by anonymous</span> <br>
+        <span>5h ago</span>
+      </div>
+    </div>
+
+    <div class="nav-btns">
+      <div class="nav-btn fav-icon">
+        <img src="./assets/fav-icon.png" alt="icon" height="100%">
+      </div>
+      <div class="nav-btn camera-icon">
+        <img src="./assets/camera-icon.png" alt="icon" height="100%">
+      </div>
+    </div>
+  </div>
+
+  <div id="fav-page">
+    <h2>Your Favourites!</h2>
+    <div class="main-slides">
+      <div>
+        <button class="slide" onclick="switchSrc(this, 'GeoPlanter')"
+          style="background-image: url('./assets/models/GeoPlanter.webp');">
+        </button>
+        GeoPlanter <br>
+        <span>by anonymous</span> <br>
+        <span>5h ago</span>
+      </div>
+      <div>
+        <button class="slide" onclick="switchSrc(this, 'ToyTrain')"
+          style="background-image: url('./assets/models/ToyTrain.webp');">
+        </button>
+        ToyTrain <br>
+        <span>by anonymous</span> <br>
+        <span>5h ago</span>
+      </div>
+    </div>
+
+    <div class="nav-btns">
+      <div class="nav-btn camera-icon">
+        <img src="./assets/camera-icon.png" alt="icon" height="100%">
+      </div>
+      <div class="nav-btn home-icon">
+        <img src="./assets/home-icon.png" alt="icon" height="92%">
+      </div>
+    </div>
+  </div>
+
+  <div id="camera-page">
+    <div id="video-container">
+      <video id="video" playsinline autoplay></video>
+    </div>
+    <div class="nav-btns">
+      <div class="nav-btn fav-icon">
+        <img src="./assets/fav-icon.png" alt="icon" height="100%">
+      </div>
+      <div class="nav-btn capture-icon">
+        <img src="./assets/capture-icon.png" alt="icon" height="100%">
+      </div>
+      <div class="nav-btn home-icon">
+        <img src="./assets/home-icon.png" alt="icon" height="95%">
+      </div>
+    </div>
+  </div>
+
+  <div id="model-view-page">
+    <model-viewer src="./assets/models/Chair.glb" poster="./assets/models/Chair.webp" shadow-intensity="1" ar
+      camera-controls touch-action="pan-y" alt="A 3D model carousel">
+
+      <button slot="ar-button" id="ar-button">
+        View in your space
+      </button>
+
+      <div id="ar-prompt">
+        <img src="./assets/hand.png">
+      </div>
+
+      <button id="ar-failure">
+        AR is not tracking!
+      </button>
+
+      <div class="nav-btns">
+        <div class="nav-btn fav-icon">
+          <img src="./assets/fav-icon.png" alt="icon" height="100%">
+        </div>
+        <div class="nav-btn home-icon">
+          <img src="./assets/home-icon.png" alt="icon" height="95%">
+        </div>
+      </div>
+    </model-viewer>
+  </div>
+
+  <!-- Use it like any other HTML element -->
+  <!-- <model-viewer
+        alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
+        src="shared-assets/models/NeilArmstrong.glb" ar environment-image="shared-assets/environments/moon_1k.hdr"
+        poster="shared-assets/models/NeilArmstrong.webp" shadow-intensity="1" camera-controls touch-action="pan-y">
+    </model-viewer> -->
+
+
+  <script src="./assets/js/routing.js"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
