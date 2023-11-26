@@ -17,7 +17,7 @@ const favPageContainer = document.querySelector("#fav-page");
 const homeNavBtns = document.querySelectorAll(".home-icon");
 const favNavBtns = document.querySelectorAll(".fav-icon");
 const cameraNavBtns = document.querySelectorAll(".camera-icon");
-const captureBtns = document.querySelectorAll(".capture-icon");
+const captureBtn = document.querySelector(".capture-icon");
 
 let hideAllPages = () => {
   landingPageContainer.style.display = "none";
@@ -32,7 +32,9 @@ let hideAllPages = () => {
 
 async function startCamera() {
   try {
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: "environment" },
+    });
 
     const video = document.getElementById("video");
     video.srcObject = stream;
@@ -84,4 +86,8 @@ cameraNavBtns.forEach((cameraNavBtn) => {
     startCamera();
     cameraPageContainer.style.display = "flex";
   });
+});
+
+captureBtn.addEventListener("click", () => {
+  alert("This feature is not yet supported");
 });
